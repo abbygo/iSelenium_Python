@@ -12,12 +12,13 @@ class ISelenium(unittest.TestCase):
     # 读入配置文件
     def get_config(self):
         config = configparser.ConfigParser()
-        config.read(os.path.join(os.environ['HOMEDRIVE'],os.path.join(os.environ['HOMEPATH'], 'iselenium.ini')))
-        # config.read(r'C:\Users\lnz\PycharmProjects\iSelenium_Python\iselenium.ini')
+        # config.read(os.path.join(os.environ['HOMEDRIVE'],os.path.join(os.environ['HOMEPATH'], 'iselenium.ini')))
+        config.read( os.path.join(os.environ['HOMEPATH'], 'iselenium.ini'))
 
         print("----------------------------over-------------")
         print(os.environ)
-        print(os.path.join(os.environ['HOMEDRIVE'],os.path.join(os.environ['HOMEPATH'], 'iselenium.ini')))
+        # print(os.path.join(os.environ['HOMEDRIVE'],os.path.join(os.environ['HOMEPATH'], 'iselenium.ini')))
+        print(config.get('driver', 'chrome_driver'))
         return config
 
     def tearDown(self):
