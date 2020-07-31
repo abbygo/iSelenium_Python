@@ -13,7 +13,7 @@ class ISelenium(unittest.TestCase):
     def get_config(self):
         config = configparser.ConfigParser()
         # config.read(os.path.join(os.environ['HOMEPATH'], 'iselenium.ini'))
-        config.read(os.path.join(os.path.split(os.getcwd())[0], 'iselenium.ini'))
+        config.read(r'C:\Users\lnz\PycharmProjects\iSelenium_Python\iselenium.ini')
 
         print("----------------------------over-------------")
         print(os.path.join(os.path.split(os.getcwd())[0], 'iselenium.ini'))
