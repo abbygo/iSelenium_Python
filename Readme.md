@@ -11,3 +11,4 @@
 
 运行命令：
 pytest -v test/web_ut.py -o junit_family=xunit2 --junit-xml=pytests.xml
+我在pycharm 中执行了脚本，脚本是正常通过的，但是通过jenkins 运行代码才报的找不到driver
