@@ -13,6 +13,7 @@ class ISelenium(unittest.TestCase):
     def get_config(self):
         config = configparser.ConfigParser()
         config.read(os.path.join(os.environ['HOMEPATH'], 'iselenium.ini'))
+        print(os.path.join(os.environ['HOMEPATH'], 'iselenium.ini'))
         return config
 
     def tearDown(self):
@@ -20,6 +21,8 @@ class ISelenium(unittest.TestCase):
 
     def setUp(self):
         config = self.get_config()
+        executable_path = config.get('driver', 'chrome_driver')
+        print(executable_path)
 
         # 控制是否采用无界面形式运行自动化测试
         try:
@@ -57,11 +60,11 @@ class ISelenium(unittest.TestCase):
 
         self.driver.get("https://ww.baidu.com")
         print('打开浏览器，访问 www.baidu.com')
-        time.sleep(5)
+        time.sleep(3)
         assert f'百度一下' in self.driver.title
 
         elem = self.driver.find_element_by_name("wd")
         elem.send_keys(f'{search_keyword}{Keys.RETURN}')
         print(f'搜索关键词~{search_keyword}')
-        time.sleep(5)
+        time.sleep(1)
         self.assertTrue(f'{search_keyword}' in self.driver.title, msg=f'{testcase_name}校验点 pass')
