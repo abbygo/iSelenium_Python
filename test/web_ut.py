@@ -13,6 +13,7 @@ class ISelenium(unittest.TestCase):
     def get_config(self):
         config = configparser.ConfigParser()
         config.read(os.path.join(os.environ['HOMEPATH'], 'iselenium.ini'))
+        print("----------------------------over-------------")
         print(os.path.join(os.environ['HOMEPATH'], 'iselenium.ini'))
         return config
 
@@ -66,5 +67,5 @@ class ISelenium(unittest.TestCase):
         elem = self.driver.find_element_by_name("wd")
         elem.send_keys(f'{search_keyword}{Keys.RETURN}')
         print(f'搜索关键词~{search_keyword}')
-        time.sleep(1)
+        time.sleep(3)
         self.assertTrue(f'{search_keyword}' in self.driver.title, msg=f'{testcase_name}校验点 pass')
